@@ -1,22 +1,22 @@
 # CSC-4200-Assignment1
-This project implements a basic client-server model using TCP sockets with both SSL/TLS encryption and AES-256 message encryption in Python 3.
+This Python 3 project uses TCP sockets to implement a simple client-server model with SSL/TLS and AES-256 message encryption.
+
 
 ## Features
 
-- TCP server that accepts multiple client connections
-- Multi-threaded handling of client requests
-- Double-layer security:
-  - SSL/TLS encryption for the connection
-  - AES-256-CBC encryption for individual messages
-- Secure message logging
-- Server acknowledgment responses
-- Proper error handling for connection and encryption issues
+A TCP server that can handle several client connections
+Handling client requests in multiple threads
+Two-layer protection:
+The connection is encrypted using SSL/TLS.
+Encrypting individual messages using AES-256-CBC
+Secure message recording; server acknowledgement messages
+Appropriate error management for encryption and connection problems
+
 
 ## Requirements
 
-- Python 3.6 or higher
-- OpenSSL (for certificate generation)
-- PyCryptodome library for AES encryption
+- OpenSSL (for certificate generation) - Python 3.6 or later
+AES encryption using the PyCryptodome library
 
 ## Project Structure
 
@@ -41,22 +41,18 @@ This project implements a basic client-server model using TCP sockets with both 
    make build
    ```
 
-This will create a virtual environment and install the required dependencies (PyCryptodome).
+This will install the necessary dependencies (PyCryptodome) and create a virtual environment.
 
 ## Encryption Details
 
-This implementation uses two layers of encryption:
+Two encryption layers are used in this implementation:
 
-1. **SSL/TLS Encryption** - Secures the TCP connection itself
-2. **AES-256-CBC Encryption** - Encrypts each individual message
+1. **SSL/TLS Encryption** - Protects the actual TCP connection
+2. **AES-256-CBC Encryption** - Encrypts every single message
 
-The AES encryption process:
-- Generates a random Initialization Vector (IV) for each message
-- Pads the message to the appropriate block size
-- Encrypts the message using AES-256 in CBC mode
-- Combines the IV with the ciphertext and encodes to base64 for transmission
+The steps involved in AES encryption are as follows: - Creates a random Initialization Vector (IV) for every message - Pads the message to the proper block size - Encrypts the message using AES-256 in CBC mode - Combines the IV with the ciphertext and encodes to base64 for transmission
 
-This dual-layer approach provides enhanced security for your communication.
+Your communication is more securely protected with this dual-layer method.
 
 ## Usage
 
