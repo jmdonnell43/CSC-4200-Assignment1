@@ -4,7 +4,7 @@ This document explains the design choices and implementation details of the TCP 
 
 ## 1. Client-Server Communication Model
 
-Our implementation uses a standard TCP socket-based client-server model with the following characteristics:
+This implementation uses a standard TCP socket-based client-server model with the following characteristics:
 
 ### Communication Flow
 
