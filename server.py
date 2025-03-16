@@ -10,13 +10,13 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from base64 import b64encode, b64decode
 
-# Configure logging
+# Configure logging to output messages to both a file and the console
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("server_logs.log"),
-        logging.StreamHandler()
+        logging.FileHandler("server_logs.log"),     # Log messages are saved to a file
+        logging.StreamHandler()                     # Log messages are printed to the console
     ]
 )
 
@@ -25,7 +25,7 @@ class SecureServer:
         self.host = host
         self.port = port
         self.server_socket = None
-        self.clients = []
+        self.clients = []                 # List to keep track of connected clients
         self.cert_file = 'server.crt'
         self.key_file = 'server.key'
         
@@ -33,7 +33,7 @@ class SecureServer:
         # In a real application, this should be securely stored and distributed
         self.encryption_key = b'SecureConnectionKey12SecureConnect'
         
-        # Create SSL context
+        # Create an SSL context for secure communication
         self.ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
         
         # Check if certificate and key files exist, if not, generate them
@@ -52,7 +52,7 @@ class SecureServer:
     def encrypt_message(self, plaintext):
         """Encrypt a message using AES-256-CBC"""
         try:
-            # Generate a random IV
+            # Generate a random 16-byte IV
             iv = os.urandom(16)
             # Create cipher
             cipher = AES.new(self.encryption_key, AES.MODE_CBC, iv)
