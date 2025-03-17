@@ -111,6 +111,6 @@ make clean
 
 ## Security Notes
 
-- The encryption key is hardcoded for simplicity. In a real-world application, this should be securely stored and distributed.
-- Certificate verification is disabled in the client. In production, proper certificate validation should be implemented.
+- The encryption key is hardcoded for simplicity. 
+- Certificate verification is disabled in the client. 
 - The server generates self-signed certificates for SSL/TLS encryption.
